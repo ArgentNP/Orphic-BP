@@ -6,7 +6,7 @@ are hosted by Orphic.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-> **Information** This is a repository of how one of my projects is made, only the Behaviour Pack side is made public. You are allowed to reuse some parts of the code for the sole
+> **Info** This is a repository of how one of my projects is made, only the Behaviour Pack side is made public. You are allowed to reuse some parts of the code for the sole
 purpose of learning EntityJson.
 Particles, and some Animation Controllers were made private due to experimental and unsafe coding methods - some parts of the code is undocumented but that 
 should be covered soonTM.
