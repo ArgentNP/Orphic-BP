@@ -1,7 +1,7 @@
 # Orphic-BP
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
->  **Warning**  You are not allowed to abuse bugs and certain unintended functionalities for your own benefits in case you are playing on one of the realms that
+**Warning**  You are not allowed to abuse bugs and certain unintended functionalities for your own benefits in case you are playing on one of the realms that
 are hosted by Orphic.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
