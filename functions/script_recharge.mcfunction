@@ -13,11 +13,11 @@ execute @a[tag=is_sneaking,scores={playerPower=..99}] ~ ~ ~ scoreboard players a
 execute @a[tag=is_sneaking,scores={playerPower=..99}] ~ ~ ~ scoreboard players add @s particlePower 1
 execute @a[tag=is_sneaking,scores={playerPower=..99}] ~ ~ ~ execute @s[scores={particlePower=60..}] ~ ~ ~ particle custom:charge
 execute @a[tag=is_sneaking,scores={playerPower=..99}] ~ ~ ~ execute @s[scores={particlePower=60..}] ~ ~ ~ scoreboard players set @s particlePower 0
-  
+
 # soundPower is used as a timer to play the 'beacon.ambient' to all players.
 execute @a[tag=is_sneaking] ~ ~ ~ scoreboard players add @s soundPower 1
 execute @a[tag=is_sneaking,scores={playerPower=..99}] ~ ~ ~ execute @s[scores={soundPower=40..}] ~ ~ ~ playsound beacon.ambient @a ~ ~ ~ 500 2
-  
+
 # this will notify the player when it's sneaking.
 execute @a[tag=is_sneaking,scores={playerPower=..99}] ~ ~ ~ titleraw @s actionbar {"rawtext":[{"text":"Keep sneaking to recharge your perk."}]}
 execute @a[tag=is_sneaking,scores={playerPower=99}] ~ ~ ~ titleraw @s actionbar {"rawtext":[{"text":"Unsneak, your perk is fully recharged."}]}
