@@ -1,4 +1,4 @@
-# called from tick.json 
+// called from tick.json 
 execute @a[tag=hermes_get] ~ ~ ~ execute @s[tag=hermes_ready] ~ ~ ~ replaceitem entity @s slot.armor.chest 0 air
 execute @a[tag=hermes_get] ~ ~ ~ effect @s slow_falling 0 1 true
 execute @a[tag=hermes_get] ~ ~ ~ tag @s remove is_gliding
