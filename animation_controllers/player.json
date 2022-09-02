@@ -1,0 +1,124 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+      // check if player is shifting or not.
+        "controller.animation.player_recharge": {
+            "initial_state": "player_recharge_default",
+            "states": {
+                "player_recharge_default": {
+                    "transitions": [
+                        {   // if player is sneaking/shifting, not swimming and with full health, give the player is_sneaking tag.
+                            "player_recharge_charge": "!query.is_swimming && query.is_sneaking && query.is_on_ground && query.health >= 20"
+                        }
+                    ]
+                },
+                "player_recharge_charge": {
+                    "on_entry": [
+                        "/tag @p add is_sneaking"
+                    ],
+                    "on_exit": [
+                        "/tag @p remove is_sneaking"
+                    ],
+                    "transitions": [
+                        {   //if the player already has is_sneaking tag and they stopped shifting, switch to default state and remove the tag on exit.
+                            "player_recharge_default": "!query.is_sneaking"
+                        }
+                    ]
+                }
+            }
+        },
+      // check if the player is gliding using hermes perk.
+        "controller.animation.hermes_perk": {
+            "initial_state": "hermes_perk_default",
+            "states": {
+                "hermes_perk_default": {
+                    "transitions": [
+                        {
+                            "hermes_perk_add": "query.has_any_family('is_hermes') && !query.is_on_ground"
+                        }
+                    ]
+                },
+                "hermes_perk_add": {
+                    "animations": [
+                        "wait(m)"
+                    ],
+                    "on_entry": [
+                        "/execute @p ~~~ tag @s add is_gliding"
+                    ],
+                    "transitions": [
+                        {
+                            "hermes_perk_remove": "query.has_any_family('is_hermes') && query.is_on_ground && query.any_animation_finished"
+                        }
+                    ]
+                },
+                "hermes_perk_remove": {
+                    "on_entry": [
+                        "/execute @p ~~~ tag @s add hermes_get"
+                    ],
+                    "transitions": [
+                        {
+                            "hermes_perk_default": "query.is_alive"
+                        }
+                    ]
+                }
+            }
+        },  // check if the player has an empty chestplate slot.
+        "controller.animation.player_empty_slot_test": {
+            "initial_state": "player_empty_slot_test",
+            "states": {
+                "player_empty_slot_test": {
+                    "transitions": [
+                        {
+                            "player_empty_slot_test_chestplate_true": "!query.is_item_name_any('slot.armor.chest',0,'minecraft:leather_chestplate','minecraft:chainmail_chestplate','minecraft:iron_chestplate','minecraft:golden_chestplate','minecraft:diamond_chestplate','minecraft:netherite_chestplate','minecraft:elytra') && query.is_alive"
+                        },
+                        {
+                            "player_empty_slot_test_chestplate_false": "query.is_item_name_any('slot.armor.chest',0,'minecraft:leather_chestplate','minecraft:chainmail_chestplate','minecraft:iron_chestplate','minecraft:golden_chestplate','minecraft:diamond_chestplate','minecraft:netherite_chestplate','minecraft:elytra') && query.is_alive"
+                        }
+                    ]
+                },
+                "player_empty_slot_test_chestplate_true": {
+                    "on_entry": [
+                        "/tag @p add empty_slot_chestplate"
+                    ],
+                    "transitions": [
+                        {
+                            "player_empty_slot_test_chestplate_false": "query.is_item_name_any('slot.armor.chest',0,'minecraft:leather_chestplate','minecraft:chainmail_chestplate','minecraft:iron_chestplate','minecraft:golden_chestplate','minecraft:diamond_chestplate','minecraft:netherite_chestplate','minecraft:elytra') && query.is_alive"
+                        }
+                    ]
+                },
+                "player_empty_slot_test_chestplate_false": {
+                    "on_entry": [
+                        "/tag @p remove empty_slot_chestplate"
+                    ],
+                    "transitions": [
+                        {
+                            "player_empty_slot_test_chestplate_true": "!query.is_item_name_any('slot.armor.chest',0,'minecraft:leather_chestplate','minecraft:chainmail_chestplate','minecraft:iron_chestplate','minecraft:golden_chestplate','minecraft:diamond_chestplate','minecraft:netherite_chestplate','minecraft:elytra') && query.is_alive"
+                        }
+                    ]
+                }
+            }
+        },  // run a function whenever the player uses the item, if continues, ignore the item usage until it stops.
+        "controller.animation.player_perks_usage": {
+            "initial_state": "player_perks_usage_default",
+            "states": {
+                "player_perks_usage_default": {
+                    "transitions": [
+                        {
+                            "player_perks_usage_use_herme_wings": "query.is_using_item && query.is_item_name_any('slot.weapon.mainhand',0,'custom:herme_wings_perk')"
+                        }
+                    ]
+                },
+                "player_perks_usage_use_herme_wings": {
+                    "on_entry": [
+                        "/execute @p ~~~ function script_herme_wings"
+                    ],
+                    "transitions": [
+                        {
+                            "player_perks_usage_default": "!query.is_using_item"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
