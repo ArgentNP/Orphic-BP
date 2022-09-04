@@ -112,6 +112,54 @@
 				}
 			}
 		},
+		"controller.animation.player_phone_generic": {
+			"initial_state": "player_phone_generic_default",
+			"states": {
+				"player_phone_generic_default": {
+					"transitions": [
+						{
+							"player_phone_generic_hold": "query.is_using_item&&query.is_item_name_any('slot.weapon.mainhand',0,'custom:phone')"
+						}
+					]
+				},
+				"player_phone_generic_hold": {
+					"on_entry": [
+						"/execute @p ~ ~ ~ structure load npc_perks ~ ~ ~ 0_degrees none",
+						"/execute @p ~ ~ ~ dialogue open @e[type=custom:npc,c=1] @s"
+					],
+					"on_exit": [
+						"/execute @p ~ ~ ~ execute @e[type=custom:entity,c=1] ~ ~ ~ event entity @s custom:despawn"
+					],
+					"transitions": [
+						{
+							"player_phone_generic_default": "!query.is_using_item||!query.is_alive"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.player_phone": {
+			"initial_state": "player_phone_default",
+			"states": {
+				"player_phone_default": {
+					"transitions": [
+						{
+							"player_phone_true": "query.is_using_item&&query.is_item_name_any('slot.weapon.mainhand',0,'custom:phone')"
+						}
+					]
+				},
+				"player_phone_true": {
+					"on_entry": [
+						"/execute @p ~ ~ ~ function script_phone"
+					],
+					"transitions": [
+						{
+							"player_phone_default": "!query.is_using_item"
+						}
+					]
+				}
+			}
+		},
 		"controller.animation.player_perks_usage": {
 			"initial_state": "player_perks_usage_default",
 			"states": {
@@ -125,6 +173,9 @@
 						},
 						{
 							"player_perks_usage_agility": "query.is_using_item&&query.is_item_name_any('slot.weapon.mainhand',0,'custom:agility_perk')"
+						},
+						{
+							"player_perks_usage_hebe": "query.is_using_item&&query.is_item_name_any('slot.weapon.mainhand',0,'custom:hebe_perk')"
 						}
 					]
 				},
@@ -151,6 +202,16 @@
 				"player_perks_usage_agility": {
 					"on_entry": [
 						"/execute @p ~~~ function script_agility"
+					],
+					"transitions": [
+						{
+							"player_perks_usage_default": "!query.is_using_item"
+						}
+					]
+				},
+				"player_perks_usage_hebe": {
+					"on_entry": [
+						"/execute @p ~~~ function script_hebe_youth"
 					],
 					"transitions": [
 						{
