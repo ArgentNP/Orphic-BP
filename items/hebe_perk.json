@@ -2,14 +2,16 @@
 	"format_version": "1.10.0",
 	"minecraft:item": {
 		"description": {
-			"identifier": "custom:phone",
-			"category": "equipment",
+			"identifier": "custom:hebe_perk",
+			"category": "commands",
 			"is_experimental": false
 		},
 		"components": {
 			"minecraft:foil": false,
 			"minecraft:food": {
 				"can_always_eat": true,
+				"cooldown_time": 260,
+				"cooldown_type": "chorus_fruit",
 				"saturation_modifier": "supernatural",
 				"nutrition": 0,
 				"on_use_action": "none"

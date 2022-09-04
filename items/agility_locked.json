@@ -1,0 +1,14 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:item": {
+		"description": {
+			"identifier": "custom:agility_locked"
+		},
+		"components": {
+			"minecraft:foil": false,
+			"minecraft:max_damage": 0,
+			"minecraft:max_stack_size": 1,
+			"minecraft:stacked_by_data": false
+		}
+	}
+}
