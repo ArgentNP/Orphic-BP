@@ -1,7 +1,7 @@
 scoreboard objectives add playerPower dummy
 scoreboard players add @a[tag=is_sneaking] playerPower 0
-execute @a[tag=!staffMode,tag=is_sneaking,tag=!agility_perk,scores={playerPower=..99}] ~ ~ ~ execute @s[scores={playerPerk=1..3}] ~ ~ ~  scoreboard players add @s playerPower 1
-execute @a[tag=!staffMode,tag=is_sneaking,tag=!agility_perk,scores={playerPower=..99}] ~ ~ ~ execute @s[scores={playerPerk=4..}] ~ ~ ~ scoreboard players add @s playerPower 2
+execute @a[tag=!staffMode,tag=is_sneaking,tag=!agility_perk,scores={playerPower=..99}] ~ ~ ~ execute @s[scores={playerPerk=1..}] ~ ~ ~  scoreboard players add @s playerPower 1
+execute @a[tag=!staffMode,tag=is_sneaking,tag=!agility_perk,scores={playerPower=..99}] ~ ~ ~ execute @s[scores={playerPerk=3}] ~ ~ ~ scoreboard players add @s playerPower 1
 execute @a[tag=!staffMode,tag=is_sneaking,scores={playerPower=..90}] ~ ~ ~ particle custom:charge_progress ~ ~ ~
 execute @a[tag=!staffMode,tag=is_sneaking,scores={playerPower=..99}] ~ ~ ~ playsound beacon.ambient @a ~ ~ ~ 500 2
 execute @a[tag=!staffMode,tag=is_sneaking,scores={playerPower=90..92}] ~ ~ ~ playsound ambient.charge.success @s ~ ~ ~ 500

@@ -4,6 +4,7 @@
 		"script_herme_wings_func",
 		"script_perk_cooldown",
 		"script_achlys_relic",
-		"script_agility_func"
+		"script_agility_func",
+		"script_switch_default"
 	]
 }
