@@ -1,0 +1,80 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "custom:npc",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"custom:instant_despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:health": {
+				"value": 10
+			},
+			"minecraft:rideable": {
+				"controlling_seat": 0,
+				"rider_can_interact": false,
+				"seat_count": 64,
+				"family_types": [
+					"npc"
+				]
+			},
+			"minecraft:type_family": {
+				"family": [
+					"npc"
+				]
+			},
+			"minecraft:collision_box": {
+				"height": 0,
+				"width": 0
+			},
+			"minecraft:physics": {
+				"has_collision": false,
+				"has_gravity": false
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": false
+				}
+			},
+			"minecraft:npc": {
+				"npc_data": {
+					"picker_offsets": {
+						"scale": [
+							0,
+							0,
+							0
+						]
+					},
+					"portrait_offsets": {
+						"scale": [
+							0,
+							0,
+							0
+						]
+					},
+					"skin_list": [
+						{
+							"variant": 0
+						}
+					]
+				}
+			}
+		},
+		"events": {
+			"custom:despawn": {
+				"add": {
+					"component_groups": [
+						"custom:instant_despawn"
+					]
+				}
+			}
+		}
+	}
+}

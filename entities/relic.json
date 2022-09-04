@@ -1,0 +1,59 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "custom:relic",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+			"animations": {
+				"relic_script": "controller.animation.relic_script"
+			},
+			"scripts": {
+				"animate": [
+					"relic_script"
+				]
+			}
+		},
+		"component_groups": {
+			"custom:instant_despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:health": {
+				"value": 10
+			},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": false,
+				"always_show": true
+			},
+			"minecraft:collision_box": {
+				"height": 1,
+				"width": 0.5
+			},
+			"minecraft:physics": {
+				"has_collision": true,
+				"has_gravity": true
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": false
+				}
+			},
+			"minecraft:scale": {
+				"value": 2
+			}
+		},
+		"events": {
+			"custom:clear": {
+				"add": {
+					"component_groups": [
+						"custom:instant_despawn"
+					]
+				}
+			}
+		}
+	}
+}
