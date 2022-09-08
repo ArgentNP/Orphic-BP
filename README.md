@@ -6,9 +6,6 @@ are hosted by Orphic.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-This is a repository of how one of my projects is made, only the Behaviour Pack side is made public. You are allowed to reuse some parts of the code for the sole
-purpose of learning EntityJson.
-Particles, and some Animation Controllers were made private due to experimental and unsafe coding methods - some parts of the code is undocumented but that 
-should be covered soonTM.
-
+A showcase of how Orphic SMP was made with no scripting or experimental features, some parts of the code is documented excluding animation
+controllers, and items. Particles and UI may not be found since they are not behaviour pack sided.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
