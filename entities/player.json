@@ -12,8 +12,7 @@
 				"hermes_perk": "controller.animation.hermes_perk",
 				"player_perks_usage": "controller.animation.player_perks_usage",
 				"empty_player_slot_test": "controller.animation.player_empty_slot_test",
-				"player_phone": "controller.animation.player_phone",
-				"player_phone_generic": "controller.animation.player_phone_generic"
+				"player_phone": "controller.animation.player_phone"
 			},
 			"scripts": {
 				"animate": [
@@ -21,18 +20,13 @@
 					"hermes_perk",
 					"empty_player_slot_test",
 					"player_perks_usage",
-					"player_phone",
-					"player_phone_generic"
+					"player_phone"
 				]
 			}
 		},
 		"component_groups": {
 			"custom:hermes": {
-				"minecraft:type_family": {
-					"family": [
-						"is_hermes"
-					]
-				}
+				"minecraft:is_ignited": {}
 			},
 			"minecraft:add_bad_omen": {
 				"minecraft:spell_effects": {
@@ -94,7 +88,7 @@
 					{
 						"cause": "entity_attack",
 						"deals_damage": true,
-						"damage_multiplier": 1.5
+						"damage_multiplier": 1.7
 					},
 					{
 						"cause": "lightning",
@@ -103,7 +97,7 @@
 					{
 						"cause": "entity_explosion",
 						"deals_damage": true,
-						"damage_multiplier": 3
+						"damage_multiplier": 2
 					}
 				]
 			},

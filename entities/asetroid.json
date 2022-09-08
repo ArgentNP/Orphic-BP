@@ -1,0 +1,70 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "custom:asetroid",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+			"animations": {
+				"asetroid": "controller.animation.asetroid"
+			},
+			"scripts": {
+				"animate": [
+					"asetroid"
+				]
+			}
+		},
+		"component_groups": {
+			"custom:add_trigger": {
+				"minecraft:is_ignited": {}
+			},
+			"custom:clear_asetroid": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:health": {
+				"value": 1
+			},
+			"minecraft:collision_box": {
+				"height": 0,
+				"width": 0
+			},
+			"minecraft:physics": {
+				"has_collision": true,
+				"has_gravity": true
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": false
+				}
+			},
+			"minecraft:type_family": {
+				"family": [
+					"pyroblast"
+				]
+			},
+			"minecraft:scale": {
+				"value": 2
+			}
+		},
+		"events": {
+			"custom:add_trigger": {
+				"add": {
+					"component_groups": [
+						"custom:add_trigger"
+					]
+				}
+			},
+			"custom:clear_asetroid": {
+				"add": {
+					"component_groups": [
+						"custom:clear_asetroid"
+					]
+				}
+			}
+		}
+	}
+}

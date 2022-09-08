@@ -5,7 +5,16 @@
 			"identifier": "custom:npc",
 			"is_spawnable": true,
 			"is_summonable": true,
-			"is_experimental": false
+			"is_experimental": false,
+			"animations": {
+				"custom_npc": "controller.animation.custom_npc",
+				"request_access": "controller.animation.request_access"
+			},
+			"scripts": {
+				"animate": [
+					"custom_npc"
+				]
+			}
 		},
 		"component_groups": {
 			"custom:instant_despawn": {
@@ -16,6 +25,7 @@
 			"minecraft:health": {
 				"value": 10
 			},
+			"minecraft:is_hidden_when_invisible": {},
 			"minecraft:rideable": {
 				"controlling_seat": 0,
 				"rider_can_interact": false,
