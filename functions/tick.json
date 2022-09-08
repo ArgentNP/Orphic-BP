@@ -5,6 +5,7 @@
 		"script_perk_cooldown",
 		"script_achlys_relic",
 		"script_agility_func",
-		"script_switch_default"
+		"script_switch_default",
+		"script_warnings"
 	]
 }

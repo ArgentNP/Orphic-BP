@@ -1,6 +1,5 @@
 execute @s[scores={playerPower=!100}] ~ ~ ~ title @s actionbar §cYour perk is not charged. §7Sneak to charge
 execute @s[scores={playerPower=100}] ~ ~ ~ effect @s instant_health 1 2 true
-execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 wheat 8 replace wheat 7
 execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 wheat 7 replace wheat 6
 execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 wheat 6 replace wheat 5
 execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 wheat 5 replace wheat 4
