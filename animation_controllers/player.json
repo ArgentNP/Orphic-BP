@@ -48,7 +48,7 @@
 				"hermes_perk_default": {
 					"transitions": [
 						{
-							"hermes_perk_add": "query.has_any_family('is_hermes')&&!query.is_on_ground"
+							"hermes_perk_add": "query.is_ignited&&!query.is_on_ground"
 						}
 					]
 				},
@@ -61,7 +61,7 @@
 					],
 					"transitions": [
 						{
-							"hermes_perk_remove": "query.has_any_family('is_hermes')&&query.is_on_ground&&query.any_animation_finished"
+							"hermes_perk_remove": "query.is_ignited&&query.is_on_ground&&query.any_animation_finished"
 						}
 					]
 				},
@@ -83,10 +83,10 @@
 				"player_empty_slot_test": {
 					"transitions": [
 						{
-							"player_empty_slot_test_chestplate_true": "!query.is_item_name_any('slot.armor.chest',0,'minecraft:leather_chestplate','minecraft:chainmail_chestplate','minecraft:iron_chestplate','minecraft:golden_chestplate','minecraft:diamond_chestplate','minecraft:netherite_chestplate','minecraft:elytra')&&query.is_alive"
+							"player_empty_slot_test_chestplate_true": "!query.is_item_name_any('slot.armor.chest',0,'minecraft:leather_chestplate','minecraft:chainmail_chestplate','minecraft:iron_chestplate','minecraft:golden_chestplate','minecraft:diamond_chestplate','minecraft:netherite_chestplate')&&query.is_alive"
 						},
 						{
-							"player_empty_slot_test_chestplate_false": "query.is_item_name_any('slot.armor.chest',0,'minecraft:leather_chestplate','minecraft:chainmail_chestplate','minecraft:iron_chestplate','minecraft:golden_chestplate','minecraft:diamond_chestplate','minecraft:netherite_chestplate','minecraft:elytra')&&query.is_alive"
+							"player_empty_slot_test_chestplate_false": "query.is_item_name_any('slot.armor.chest',0,'minecraft:leather_chestplate','minecraft:chainmail_chestplate','minecraft:iron_chestplate','minecraft:golden_chestplate','minecraft:diamond_chestplate','minecraft:netherite_chestplate')&&query.is_alive"
 						}
 					]
 				},
@@ -96,7 +96,7 @@
 					],
 					"transitions": [
 						{
-							"player_empty_slot_test_chestplate_false": "query.is_item_name_any('slot.armor.chest',0,'minecraft:leather_chestplate','minecraft:chainmail_chestplate','minecraft:iron_chestplate','minecraft:golden_chestplate','minecraft:diamond_chestplate','minecraft:netherite_chestplate','minecraft:elytra')&&query.is_alive"
+							"player_empty_slot_test_chestplate_false": "query.is_item_name_any('slot.armor.chest',0,'minecraft:leather_chestplate','minecraft:chainmail_chestplate','minecraft:iron_chestplate','minecraft:golden_chestplate','minecraft:diamond_chestplate','minecraft:netherite_chestplate')||!query.is_alive"
 						}
 					]
 				},
@@ -106,7 +106,7 @@
 					],
 					"transitions": [
 						{
-							"player_empty_slot_test_chestplate_true": "!query.is_item_name_any('slot.armor.chest',0,'minecraft:leather_chestplate','minecraft:chainmail_chestplate','minecraft:iron_chestplate','minecraft:golden_chestplate','minecraft:diamond_chestplate','minecraft:netherite_chestplate','minecraft:elytra')&&query.is_alive"
+							"player_empty_slot_test_chestplate_true": "!query.is_item_name_any('slot.armor.chest',0,'minecraft:leather_chestplate','minecraft:chainmail_chestplate','minecraft:iron_chestplate','minecraft:golden_chestplate','minecraft:diamond_chestplate','minecraft:netherite_chestplate')||!query.is_alive"
 						}
 					]
 				}
@@ -124,8 +124,7 @@
 				},
 				"player_phone_generic_hold": {
 					"on_entry": [
-						"/execute @p ~ ~ ~ structure load npc_perks ~ ~ ~ 0_degrees none",
-						"/execute @p ~ ~ ~ dialogue open @e[type=custom:npc,c=1] @s"
+						"/execute @p ~ ~ ~ structure load npc_home ~ ~ ~ 0_degrees none"
 					],
 					"on_exit": [
 						"/execute @p ~ ~ ~ execute @e[type=custom:entity,c=1] ~ ~ ~ event entity @s custom:despawn"
@@ -150,12 +149,31 @@
 				},
 				"player_phone_true": {
 					"on_entry": [
-						"/execute @p ~ ~ ~ function script_phone"
+						"/summon custom:npc",
+						"/dialogue open @e[type=custom:npc,c=1] @p home_pack",
+						"/dialogue change @e[type=custom:npc,c=1] home_pack @p"
 					],
 					"transitions": [
 						{
 							"player_phone_default": "!query.is_using_item"
+						},
+						{
+							"player_phone_loop_until_feedback": "query.is_using_item&&query.is_item_name_any('slot.weapon.mainhand',0,'custom:phone')"
 						}
+					]
+				},
+				"player_phone_loop_until_feedback": {
+					"transitions": [
+						{
+							"player_phone_default": "!query.is_using_item"
+						},
+						{
+							"player_phone_loop_until_feedback": "query.is_using_item&&query.is_item_name_any('slot.weapon.mainhand',0,'custom:phone')"
+						}
+					],
+					"on_entry": [
+						"/dialogue open @e[type=custom:npc,c=1] @p home_pack",
+						"/dialogue change @e[type=custom:npc,c=1] home_pack @p"
 					]
 				}
 			}
@@ -176,6 +194,15 @@
 						},
 						{
 							"player_perks_usage_hebe": "query.is_using_item&&query.is_item_name_any('slot.weapon.mainhand',0,'custom:hebe_perk')"
+						},
+						{
+							"player_perks_usage_rampage": "query.is_using_item&&query.is_item_name_any('slot.weapon.mainhand',0,'custom:rampage_perk')"
+						},
+						{
+							"player_perks_usage_unknown": "query.is_using_item&&query.is_item_name_any('slot.weapon.mainhand',0,'custom:blank_perk')"
+						},
+						{
+							"player_perks_usage_pyroblast": "query.is_using_item&&query.is_item_name_any('slot.weapon.mainhand',0,'custom:pyro_blast_perk')"
 						}
 					]
 				},
@@ -212,6 +239,36 @@
 				"player_perks_usage_hebe": {
 					"on_entry": [
 						"/execute @p ~~~ function script_hebe_youth"
+					],
+					"transitions": [
+						{
+							"player_perks_usage_default": "!query.is_using_item"
+						}
+					]
+				},
+				"player_perks_usage_rampage": {
+					"on_entry": [
+						"/execute @p ~~~ function script_rampage"
+					],
+					"transitions": [
+						{
+							"player_perks_usage_default": "!query.is_using_item"
+						}
+					]
+				},
+				"player_perks_usage_unknown": {
+					"on_entry": [
+						"/execute @p ~~~ function script_return_unknown"
+					],
+					"transitions": [
+						{
+							"player_perks_usage_default": "!query.is_using_item"
+						}
+					]
+				},
+				"player_perks_usage_pyroblast": {
+					"on_entry": [
+						"/execute @p ~~~ function script_pyroblast"
 					],
 					"transitions": [
 						{

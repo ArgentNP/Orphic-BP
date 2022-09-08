@@ -1,0 +1,29 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.asetroid": {
+			"initial_state": "asetroid_default",
+			"states": {
+				"asetroid_default": {
+					"transitions": [
+						{
+							"asetroid_null": "!query.is_on_ground"
+						}
+					]
+				},
+				"asetroid_null": {
+					"transitions": [
+						{
+							"asetroid_exploding": "query.is_ignited&&query.is_on_ground"
+						}
+					]
+				},
+				"asetroid_exploding": {
+					"on_entry": [
+						"/execute @e[type=custom:asetroid,c=1] ~ ~ ~ function script_asetroid"
+					]
+				}
+			}
+		}
+	}
+}
