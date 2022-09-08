@@ -7,5 +7,6 @@ are hosted by Orphic.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 A showcase of how Orphic SMP was made with no scripting or experimental features, some parts of the code is documented excluding animation
-controllers, and items. Particles and UI may not be found since they are not behaviour pack sided.
+controllers, and items; Particles and UI may not be found since they are not behaviour pack sided.
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
