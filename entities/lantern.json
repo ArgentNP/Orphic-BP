@@ -1,0 +1,56 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "custom:lantern",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+			"animations": {
+				"lantern": "animation.lantern.wait_mid",
+				"lantern_controller": "controller.animation.lantern"
+			},
+			"scripts": {
+				"animate": [
+					"lantern_controller"
+				]
+			}
+		},
+		"component_groups": {
+			"custom:despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:health": {
+				"value": 20
+			},
+			"minecraft:physics": {
+				"has_collision": false,
+				"has_gravity": false
+			},
+			"minecraft:collision_box": {
+				"height": 0,
+				"width": 0
+			},
+			"minecraft:scale": {
+				"value": 1.3
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": false
+				}
+			}
+		},
+		"events": {
+			"custom:light_despawn": {
+				"add": {
+					"component_groups": [
+						"custom:despawn"
+					]
+				}
+			}
+		}
+	}
+}

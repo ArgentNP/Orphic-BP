@@ -12,7 +12,8 @@
 				"hermes_perk": "controller.animation.hermes_perk",
 				"player_perks_usage": "controller.animation.player_perks_usage",
 				"empty_player_slot_test": "controller.animation.player_empty_slot_test",
-				"player_phone": "controller.animation.player_phone"
+				"player_phone": "controller.animation.player_phone",
+				"poseidon": "controller.animation.poseidon"
 			},
 			"scripts": {
 				"animate": [
@@ -20,7 +21,8 @@
 					"hermes_perk",
 					"empty_player_slot_test",
 					"player_perks_usage",
-					"player_phone"
+					"player_phone",
+					"poseidon"
 				]
 			}
 		},

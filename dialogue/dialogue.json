@@ -1,0 +1,222 @@
+{
+	"format_version": "1.17.20",
+	"minecraft:npc_dialogue": {
+		"scenes": [
+			{
+				"scene_tag": "home_pack",
+				"npc_name": " My Phone§7 Private",
+				"text": "     Welcome to OrphicSmp 3.0\n\n Change your perk using \"Player Perks\" menu, navigate between worlds through Landmarks, and don't forget to check the realm rules using from \"Rules\" menu.",
+				"buttons": [
+					{
+						"name": "Player Perks",
+						"commands": [
+							"title @initiator actionbar §7Player requesting access to perks_pack",
+							"execute @initiator[scores={entityMain=1}] ~~~ dialogue open @e[type=custom:npc,c=1] @p perks_pack_u1",
+							"execute @initiator[scores={entityMain=2}] ~~~ dialogue open @e[type=custom:npc,c=1] @p perks_pack_u2",
+							"execute @initiator[scores={entityMain=3}] ~~~ dialogue open @e[type=custom:npc,c=1] @p perks_pack_u3",
+							"execute @initiator[scores={entityMain=4}] ~~~ dialogue open @e[type=custom:npc,c=1] @p perks_pack_u4"
+						]
+					},
+					{
+						"name": "Landmarks",
+						"commands": [
+							"title @initiator actionbar §7Player requesting access to landmarks_pack",
+							"dialogue open @e[type=custom:npc,c=1] @p landmarks_pack"
+						]
+					},
+					{
+						"name": "Rules",
+						"commands": [
+							"title @initiator actionbar §7Player requesting access to rules_pack",
+							"dialogue open @e[type=custom:npc,c=1] @p rules_pack"
+						]
+					}
+				]
+			},
+			{
+				"scene_tag": "perks_pack_u1",
+				"npc_name": " Player Perks§7 Private",
+				"text": "     Welcome to OrphicSmp 3.0\n\n Perks require full power to be used, some perks take more time to recharge than others, and every four days new perks will be introduced.\n\n§lCurrent Perks§r\n\n    ",
+				"buttons": [
+					{
+						"name": "Agility",
+						"commands": [
+							"/scoreboard players set @initiator playerPerk 4",
+							"event entity @e[type=custom:npc,c=1] custom:despawn",
+							"title @initiator actionbar Equipped player perk §b Agility"
+						]
+					},
+					{
+						"name": "Achlys Wisdom",
+						"commands": [
+							"/scoreboard players set @initiator playerPerk 2",
+							"event entity @e[type=custom:npc,c=1] custom:despawn",
+							"title @initiator actionbar Equipped player perk §a Achlys Wisdom"
+						]
+					},
+					{
+						"name": "Hebe's Youth",
+						"commands": [
+							"/scoreboard players set @initiator playerPerk 3",
+							"event entity @e[type=custom:npc,c=1] custom:despawn",
+							"title @initiator actionbar Equipped player perk §3 Hebe's Youth"
+						]
+					}
+				],
+				"on_close_commands": [
+					"event entity @e[type=custom:npc,c=1] custom:despawn"
+				]
+			},
+			{
+				"scene_tag": "perks_pack_u2",
+				"npc_name": " Player Perks§7 Private",
+				"text": "     Welcome to OrphicSmp 3.0\n\n Perks require full power to be used, some perks take more time to recharge than others, and every four days new perks will be introduced.\n\n§lCurrent Perks§c NEW§r\n\n    ",
+				"buttons": [
+					{
+						"name": "Pyroblast",
+						"commands": [
+							"/scoreboard players set @initiator playerPerk 6",
+							"event entity @e[type=custom:npc,c=1] custom:despawn",
+							"title @initiator actionbar Equipped player perk §6 Pyroblast"
+						]
+					},
+					{
+						"name": "Rampage",
+						"commands": [
+							"/scoreboard players set @initiator playerPerk 5",
+							"event entity @e[type=custom:npc,c=1] custom:despawn",
+							"title @initiator actionbar Equipped player perk §c Rampage"
+						]
+					},
+					{
+						"name": "Poseidon",
+						"commands": [
+							"/scoreboard players set @initiator playerPerk 7",
+							"event entity @e[type=custom:npc,c=1] custom:despawn",
+							"title @initiator actionbar Equipped player perk §b Poseidon"
+						]
+					}
+				],
+				"on_close_commands": [
+					"event entity @e[type=custom:npc,c=1] custom:despawn"
+				]
+			},
+			{
+				"scene_tag": "perks_pack_u3",
+				"npc_name": " Player Perks§7 Private",
+				"text": "     Welcome to OrphicSmp 3.0\n\n Perks require full power to be used, some perks take more time to recharge than others, and every four days new perks will be introduced.\n\n§lCurrent Perks§r\n\n?  ?  ?",
+				"buttons": [
+					{
+						"name": "Hermes Wings",
+						"commands": [
+							"/scoreboard players set @initiator playerPerk 1",
+							"event entity @e[type=custom:npc,c=1] custom:despawn",
+							"title @initiator actionbar Equipped player perk §f Hermes Wings"
+						]
+					},
+					{
+						"name": "Sorrow Winds",
+						"commands": [
+							"/scoreboard players set @initiator playerPerk 8",
+							"event entity @e[type=custom:npc,c=1] custom:despawn",
+							"title @initiator actionbar Equipped player perk §d Sorrow Winds"
+						]
+					},
+					{
+						"name": "Blessings",
+						"commands": [
+							"/scoreboard players set @initiator playerPerk 9",
+							"event entity @e[type=custom:npc,c=1] custom:despawn",
+							"title @initiator actionbar Equipped player perk §c Blessings"
+						]
+					}
+				],
+				"on_close_commands": [
+					"event entity @e[type=custom:npc,c=1] custom:despawn"
+				]
+			},
+			{
+				"scene_tag": "perks_pack_u4",
+				"npc_name": " Player Perks§7 Private",
+				"text": "     Welcome to OrphicSmp 3.0\n\n Perks require full power to be used, some perks take more time to recharge than others, and every four days new perks will be introduced.\n\n§lCurrent Perks§r\n\n?  ?  ?",
+				"buttons": [
+					{
+						"name": "Sorrow Winds",
+						"commands": [
+							"/scoreboard players set @initiator playerPerk 8",
+							"event entity @e[type=custom:npc,c=1] custom:despawn",
+							"title @initiator actionbar Equipped player perk §d Sorrow Winds"
+						]
+					},
+					{
+						"name": "Pyroblast",
+						"commands": [
+							"/scoreboard players set @initiator playerPerk 6",
+							"event entity @e[type=custom:npc,c=1] custom:despawn",
+							"title @initiator actionbar Equipped player perk §6 Pyroblast"
+						]
+					},
+					{
+						"name": "Achlys Wisdom",
+						"commands": [
+							"/scoreboard players set @initiator playerPerk 2",
+							"event entity @e[type=custom:npc,c=1] custom:despawn",
+							"title @initiator actionbar Equipped player perk §a Achlys Wisdom"
+						]
+					}
+				],
+				"on_close_commands": [
+					"event entity @e[type=custom:npc,c=1] custom:despawn"
+				]
+			},
+			{
+				"scene_tag": "landmarks_pack",
+				"npc_name": " Landmarks §7Private",
+				"text": "     Welcome to OrphicSmp 3.0\n\n Use landmarks to teleport around the map, new marks will introduced in the future, you may be able to travel to other dimensions aswell.",
+				"buttons": [
+					{
+						"name": "Spawn",
+						"commands": [
+							"execute @initiator ~~~ function script_tp_spawn",
+							"event entity @e[type=custom:npc,c=1] custom:despawn"
+						]
+					},
+					{
+						"name": "Nether",
+						"commands": [
+							"execute @initiator ~~~ function script_tp_nether",
+							"event entity @e[type=custom:npc,c=1] custom:despawn"
+						]
+					},
+					{
+						"name": "Limbo",
+						"commands": [
+							"execute @initiator ~~~ function script_tp_limbo",
+							"event entity @e[type=custom:npc,c=1] custom:despawn"
+						]
+					}
+				],
+				"on_close_commands": [
+					"event entity @e[type=custom:npc,c=1] custom:despawn"
+				]
+			},
+			{
+				"scene_tag": "rules_pack",
+				"npc_name": " Realm Rules §7Private",
+				"text": "     Welcome to OrphicSmp 3.0\n\n - Respect other players, keep chat chill, and civil, avoid spam or advertising and any form of racism, sexism, homphobia, or any form of hate speech is banned.\n - Don't steal from others or invade, greif, or terraform their areas without permission.\n - Any type of client modification that may give you an unfair advantage is disallowed, this inclusive X-ray, and mini-maps.",
+				"buttons": [
+					{
+						"name": "Agreed",
+						"commands": [
+							"/tellraw @initiator {\"rawtext\":[{\"text\":\"§a Thank you§f for reading the rules, we hope you have a great experience. §aHave fun!\"}]}",
+							"event entity @e[type=custom:npc,c=1] custom:despawn"
+						]
+					}
+				],
+				"on_close_commands": [
+					"event entity @e[type=custom:npc,c=1] custom:despawn"
+				]
+			}
+		]
+	}
+}

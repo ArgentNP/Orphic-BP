@@ -1,5 +1,6 @@
 execute @s[scores={playerPower=!100}] ~ ~ ~ title @s actionbar §cYour perk is not charged. §7Sneak to charge
-execute @s[scores={playerPower=100}] ~ ~ ~ effect @s instant_health 1 2 true
+execute @s[scores={playerPower=100}] ~ ~ ~ effect @s regeneration 5 2 true
+execute @s[scores={playerPower=100}] ~ ~ ~ effect @s saturation 5 1 true
 execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 wheat 7 replace wheat 6
 execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 wheat 6 replace wheat 5
 execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 wheat 5 replace wheat 4
@@ -7,7 +8,7 @@ execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 wheat 4 rep
 execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 wheat 3 replace wheat 2
 execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 wheat 2 replace wheat 1
 execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 wheat 1 replace wheat 0
-execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 carrots 7 replace carrots 8
+execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 carrots 7 replace carrots 6
 execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 carrots 6 replace carrots 5
 execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 carrots 5 replace carrots 4
 execute @s[scores={playerPower=100}] ~ ~ ~ fill ~3 ~3 ~3 ~-3 ~-3 ~-3 carrots 4 replace carrots 3

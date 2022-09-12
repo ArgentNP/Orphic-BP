@@ -1,9 +1,8 @@
 execute @s[scores={playerPower=!100}] ~ ~ ~ title @s actionbar §cYour perk is not charged. §7Sneak to charge
 execute @s[scores={playerPower=100}] ~ ~ ~ tag @s add ignore_feedback
-execute @s[scores={playerPower=100}] ~ ~ ~ effect @s resistance 10 200 true
+execute @s[scores={playerPower=100}] ~ ~ ~ effect @s resistance 10 1 true
 execute @s[scores={playerPower=100}] ~ ~ ~ effect @s strength 10 1 true
-execute @s[scores={playerPower=100}] ~ ~ ~ effect @s hunger 3 200 true
-execute @s[scores={playerPower=100}] ~ ~ ~ effect @s darkness 5 200 false
+execute @s[scores={playerPower=100}] ~ ~ ~ effect @s darkness 10 200 false
 execute @s[scores={playerPower=100}] ~ ~ ~ title @s actionbar §f Rampage gifted you strength and fear.
 execute @s[scores={playerPower=100}] ~ ~ ~ playsound slightly_angry.warden @s ~ ~ ~ 500 0.7
 execute @s[scores={playerPower=100}] ~ ~ ~ execute @e[family=monster,r=10] ~ ~ ~ playsound mob.zombie.woodbreak @a ~ ~ ~

@@ -77,6 +77,33 @@
 				}
 			}
 		},
+		"controller.animation.poseidon": {
+			"initial_state": "poseidon_default",
+			"states": {
+				"poseidon_default": {
+					"transitions": [
+						{
+							"poseidon_in_water": "query.is_swimming"
+						}
+					]
+				},
+				"poseidon_in_water": {
+					"on_entry": [
+						"/execute @p ~ ~ ~ tag @s[scores={playerPerk=7}] add is_swimming",
+						"/title @s[scores={playerPerk=7}] actionbar §f Perk is charged §e100§6/§e100§f §7 Swim"
+					],
+					"on_exit": [
+						"/execute @p ~ ~ ~ tag @s[scores={playerPerk=7}] remove is_swimming",
+						"/execute @p ~ ~ ~ title @s[scores={playerPerk=7}] actionbar §c Perk was discharged §e0§6/§e100§f §7 Swim"
+					],
+					"transitions": [
+						{
+							"poseidon_default": "!query.is_swimming"
+						}
+					]
+				}
+			}
+		},
 		"controller.animation.player_empty_slot_test": {
 			"initial_state": "player_empty_slot_test",
 			"states": {
@@ -203,6 +230,18 @@
 						},
 						{
 							"player_perks_usage_pyroblast": "query.is_using_item&&query.is_item_name_any('slot.weapon.mainhand',0,'custom:pyro_blast_perk')"
+						},
+						{
+							"player_perks_usage_poseidon_fake": "query.is_using_item&&query.is_item_name_any('slot.weapon.mainhand',0,'custom:poseidon_locked')"
+						},
+						{
+							"player_perks_usage_poseidon": "query.is_using_item&&query.is_item_name_any('slot.weapon.mainhand',0,'custom:poseidon_perk')"
+						},
+						{
+							"player_perks_usage_sorrow_winds": "query.is_using_item&&query.is_item_name_any('slot.weapon.mainhand',0,'custom:sorrow_winds_perk')"
+						},
+						{
+							"player_perks_usage_blessings": "query.is_using_item&&query.is_item_name_any('slot.weapon.mainhand',0,'custom:heart_perk')"
 						}
 					]
 				},
@@ -269,6 +308,46 @@
 				"player_perks_usage_pyroblast": {
 					"on_entry": [
 						"/execute @p ~~~ function script_pyroblast"
+					],
+					"transitions": [
+						{
+							"player_perks_usage_default": "!query.is_using_item"
+						}
+					]
+				},
+				"player_perks_usage_poseidon": {
+					"on_entry": [
+						"/execute @p ~~~ function script_poseidon"
+					],
+					"transitions": [
+						{
+							"player_perks_usage_default": "!query.is_using_item"
+						}
+					]
+				},
+				"player_perks_usage_poseidon_fake": {
+					"on_entry": [
+						"/execute @p ~~~ function script_poseidon_fake"
+					],
+					"transitions": [
+						{
+							"player_perks_usage_default": "!query.is_using_item"
+						}
+					]
+				},
+				"player_perks_usage_sorrow_winds": {
+					"on_entry": [
+						"/execute @p ~~~ function script_sorrow_winds"
+					],
+					"transitions": [
+						{
+							"player_perks_usage_default": "!query.is_using_item"
+						}
+					]
+				},
+				"player_perks_usage_blessings": {
+					"on_entry": [
+						"/execute @p ~~~ function script_blessings"
 					],
 					"transitions": [
 						{

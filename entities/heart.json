@@ -1,0 +1,52 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "custom:heart",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+			"animations": {
+				"wait_mid_heart": "animation.heart.wait_mid",
+				"heart": "controller.animation.heart"
+			},
+			"scripts": {
+				"animate": [
+					"heart"
+				]
+			}
+		},
+		"component_groups": {
+			"custom:remove_heart": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:health": {
+				"value": 1
+			},
+			"minecraft:collision_box": {
+				"height": 0,
+				"width": 0
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": false
+				}
+			},
+			"minecraft:scale": {
+				"value": 2
+			}
+		},
+		"events": {
+			"custom:remove_heart": {
+				"add": {
+					"component_groups": [
+						"custom:remove_heart"
+					]
+				}
+			}
+		}
+	}
+}

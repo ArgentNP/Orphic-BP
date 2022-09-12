@@ -1,0 +1,8 @@
+gamerule commandblockoutput false
+gamerule sendcommandfeedback false
+gamerule firedamage true
+gamerule doimmediaterespawn false
+gamerule dodaylightcycle true
+gamerule showtags false
+gamerule showdeathmessages true
+gamerule dofiretick false

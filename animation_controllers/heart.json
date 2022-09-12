@@ -1,0 +1,25 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.heart": {
+			"initial_state": "heart_default",
+			"states": {
+				"heart_default": {
+					"animations": [
+						"wait_mid_heart"
+					],
+					"transitions": [
+						{
+							"heart_remove": "query.any_animation_finished"
+						}
+					]
+				},
+				"heart_remove": {
+					"on_entry": [
+						"/event entity @s custom:remove_heart"
+					]
+				}
+			}
+		}
+	}
+}

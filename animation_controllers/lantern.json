@@ -1,0 +1,36 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.lantern": {
+			"initial_state": "lantern_default",
+			"states": {
+				"lantern_default": {
+					"transitions": [
+						{
+							"lantern_alive": "query.is_alive"
+						}
+					]
+				},
+				"lantern_alive": {
+					"on_entry": [
+						"/fill ~ ~ ~ ~ ~ ~ light_block 12 replace air 0"
+					],
+					"animations": [
+						"lantern"
+					],
+					"transitions": [
+						{
+							"lantern_kill": "query.any_animation_finished"
+						}
+					]
+				},
+				"lantern_kill": {
+					"on_entry": [
+						"/fill ~ ~ ~ ~ ~ ~ air 0 replace light_block 12",
+						"/event entity @s custom:light_despawn"
+					]
+				}
+			}
+		}
+	}
+}
